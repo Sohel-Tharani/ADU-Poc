@@ -1,0 +1,30 @@
+.Search_Container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    justify-content: center;
+    margin: auto;
+}
+
+.Search_Container>input {
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.Search_Container>textarea {
+    min-height: 100px;
+}
+
+
+.Search_Container>label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.Search_Container>label::after {
+    content: ":";
+    margin-left: 4px;
+}
