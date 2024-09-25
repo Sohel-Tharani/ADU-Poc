@@ -1,19 +1,18 @@
 iframe {
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 5px;
-  /* padding: 10px; */
-  min-height: 550px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-height: 550px;
 }
 
 .Container {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 40px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40px;
 }
 
 @media (max-width: 700px) {
-  .Container {
-    grid-template-columns: 100%;
-  }
+    .Container {
+        grid-template-columns: 100%;
+    }
 }

@@ -1,67 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ADU Insider</title>
     <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
+</head>
+
+<body>
+    <script src="./index.js"></script>
+
     <h1>ADU Inter iFrame Communication</h1>
+
     <div class="Container">
-      <iframe src="http://localhost:3000/search" id="search-iframe"></iframe>
-      <iframe src="http://localhost:3000/results" id="resultsIframe"></iframe>
+        <iframe src="http://localhost:3000/search" id="search-iframe"></iframe>
+        <iframe src="http://localhost:3000/results" id="resultsIframe"></iframe>
     </div>
 
-    <script>
-      window.addEventListener("message", (event) => {
-        if (event.origin !== "http://localhost:3000") return; // Adjust this as needed
+</body>
 
-        if (event.data.type === "SEARCH") {
-          const searchResult = { result: event.data.data.query };
-          // Send the result back to the results iframe
-          const resultsIframe =
-            document.getElementById("resultsIframe").contentWindow;
-          resultsIframe.postMessage(
-            { type: "SEARCH_RESULT", data: searchResult },
-            event.origin
-          );
-        }
-      });
-
-      //   Local Storage Test
-      const localD = {
-        firstName: "Sohel_Local",
-        lastName: "Tharani",
-        userId: "1234",
-        userToken: "e12se2334fsver",
-      };
-      localStorage.setItem("user", JSON.stringify(localD));
-
-      const sessionD = {
-        firstName: "Sohel_Session",
-        lastName: "Tharani",
-        userId: "1234",
-        userToken: "e12se2334fsver",
-      };
-      sessionStorage.setItem("user", JSON.stringify(sessionD));
-
-      window.addEventListener("load", () => {
-        const searchIframe =
-          document.getElementById("search-iframe").contentWindow;
-
-        const localUserData = localStorage.getItem("user");
-        searchIframe.postMessage(
-          { type: "LOCAL_USER", data: localUserData },
-          "*"
-        );
-
-        const sessionUserData = sessionStorage.getItem("user"); // Use sessionStorage
-        searchIframe.postMessage(
-          { type: "SESSION_USER", data: sessionUserData },
-          "*"
-        ); // Send user data
-      });
-    </script>
-  </body>
 </html>
